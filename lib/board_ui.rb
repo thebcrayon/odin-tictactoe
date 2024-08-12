@@ -11,9 +11,31 @@ class BoardUI
     @board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
   end
 
-  def print_current_state
-    @board.each_with_index do |row, _row_index|
-      puts row.join(' | ')
+  def print_current_board
+    @board.each_with_index do |row, row_index|
+      puts "\t  #{row.join(' | ')} "
+      puts "\t –––––––––––" unless row_index == row.size - 1
     end
+  end
+
+  def process_choice(player_choice, player_icon)
+    player_choice_int = player_choice.to_i
+    if (player_choice_int != 0) && (choice_available?(player_choice_int) == true)
+      update_board(player_choice_int, player_icon)
+    else
+      puts "'#{player_choice}' is not an option, please select available number"
+      print_current_board
+      process_choice(gets.chomp, player_icon)
+    end
+  end
+
+  def choice_available?(choice)
+    @board.flatten.include?(choice)
+  end
+
+  def update_board(player_choice, player_icon)
+    row = @board.index { |element| element.include?(player_choice) }
+    col = @board[row].index(player_choice)
+    @board[row][col] = player_icon
   end
 end

@@ -3,12 +3,12 @@
 # Player information like name, win total
 # move choice
 class Player
-  attr_reader :name
+  attr_reader :name, :icon
 
-  def initialize(name)
-    @name = name
+  def initialize(name, icon, color)
+    @name = name.colorize(color.to_sym)
+    @icon = icon.colorize(color.to_sym)
     @total_points = 0
-    @current_choice = 0
   end
 
   def add_point
