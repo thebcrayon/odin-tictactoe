@@ -15,11 +15,11 @@ Project: Tic Tac Toe is the first basic OOP project in the [Ruby Course](https:/
 - Run program with command `your_directory_path/tictactoe % ruby main.rb`
 
 ### Screenshots
-<img style="display: block; padding-bottom: 20px; border: 1px solid black;" src="img/tictactoe-1.jpg" width="35%" height="35%"/>
+<img style="display: block; padding-bottom: 20px; border: 1px solid black;" src="img/tictactoe-1.jpg" width="70%" height="70%"/>
 
-<img style="display: block; padding-bottom: 20px; border: 1px solid black;" src="img/tictactoe-2.jpg" width="35%" height="35%"/>
+<img style="display: block; padding-bottom: 20px; border: 1px solid black;" src="img/tictactoe-2.jpg" width="70%" height="70%"/>
 
-<img style="display: block; padding-bottom: 20px; border: 1px solid black;" src="img/tictactoe-3.jpg" width="35%" height="35%"/>
+<img style="display: block; padding-bottom: 20px; border: 1px solid black;" src="img/tictactoe-3.jpg" width="70%" height="70%"/>
 
 ### Project Links
 
