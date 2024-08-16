@@ -7,6 +7,19 @@ Project: Tic Tac Toe is the first basic OOP project in the [Ruby Course](https:/
 ### Built with
 
 - Ruby
+- [Gem - Colorize](https://rubygems.org/gems/colorize)
+
+### Intructions
+
+- With ruby [installed](https://www.ruby-lang.org/en/documentation/installation/), navigate to main folder in terminal: `% cd your_directory_path/tictactoe`
+- Run program with command `your_directory_path/tictactoe % ruby main.rb`
+
+### Screenshots
+<img style="display: block; padding-bottom: 20px; border: 1px solid black;" src="img/tictactoe-1.jpg" width="35%" height="35%"/>
+
+<img style="display: block; padding-bottom: 20px; border: 1px solid black;" src="img/tictactoe-2.jpg" width="35%" height="35%"/>
+
+<img style="display: block; padding-bottom: 20px; border: 1px solid black;" src="img/tictactoe-3.jpg" width="35%" height="35%"/>
 
 ### Project Links
 
