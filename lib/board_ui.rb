@@ -14,6 +14,7 @@ class BoardUI
       puts "\t  #{row.join(' | ')} "
       puts "\t –––––––––––" unless row_index == row.size - 1
     end
+    puts "\n"
   end
 
   def process_choice(player_choice, player_icon)
@@ -32,8 +33,16 @@ class BoardUI
     @board[row][col] = player_icon
   end
 
+  def board_full?
+    @board.flatten.all?(String)
+  end
+
   def contains_a_set?(icon)
     check_horizontals(icon) || check_verticals(icon) || check_diagonals(icon)
+  end
+
+  def reset_board
+    @board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
   end
 
   private
