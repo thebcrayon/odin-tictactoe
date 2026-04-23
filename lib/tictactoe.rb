@@ -7,7 +7,6 @@ class TicTacToe
     @player_two = Player.new(name: 'Player 2'.colorize(:yellow), icon: 'O'.colorize(:yellow))
     @board = Board.new
     @current_player = @player_one
-    @player_choice = 0
   end
 
   def self.start
@@ -19,8 +18,7 @@ class TicTacToe
     until end_condition?
       clear_screen
       @board.display # display current board, prompt current player
-      prompt_choice
-      change_turn unless end_condition?
+      take_turn
       puts
     end
     end_game if end_condition?
@@ -28,27 +26,33 @@ class TicTacToe
 
   private
 
-  def prompt_choice
-    ask_player(@current_player.name)
-    @player_choice = gets.chomp.to_i - 1
-    if valid_move?
-      process_choice
-    else
-      prompt_choice
+  def take_turn
+    loop do
+      choice = prompt_choice
+
+      if @board.cell_available?(choice)
+        process_choice(choice)
+        change_turn unless end_condition?
+        break
+      else
+        puts 'That cell is already taken'
+      end
     end
   end
 
-  def process_choice
-    @board.place_icon(@player_choice, @current_player.icon)
+  def prompt_choice
+    loop do
+      puts "#{@current_player.name} Please enter a number 1-9"
+      input = gets.chomp.to_i - 1
+
+      break input if input.between?(0, 8)
+
+      puts 'Incorrect, please try again...'
+    end
   end
 
-  def valid_move?
-    number_in_range? &&
-      @board.cell_available?(@player_choice)
-  end
-
-  def number_in_range?
-    @player_choice.between?(0, 8)
+  def process_choice(choice)
+    @board.place_icon(choice, @current_player.icon)
   end
 
   def winner?
@@ -69,10 +73,6 @@ class TicTacToe
 
   def clear_screen
     puts "\e[H\e[2J"
-  end
-
-  def ask_player(current_player_name)
-    puts "#{current_player_name} - Please choose a number 1-9 to play your marker"
   end
 
   def end_game
